@@ -1,40 +1,214 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>S-rank by tamadra</title>
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+		<title> S-Rank! </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/min.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>S-rank</h1>
-        <p>A simple Puzzle &amp; Dragons tool</p>
-        <p class="view"><a href="https://github.com/tamadra/s-rank">View the Project on GitHub <small>tamadra/s-rank</small></a></p>
-        <ul>
-          <li><a href="https://github.com/tamadra/s-rank/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/tamadra/s-rank/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/tamadra/s-rank">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>Hello, World</p>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/tamadra">tamadra</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
+        <style>
+            .slider_value {
+                border:0;
+                color:#f6931f;
+                font-weight:bold;
+                font-size:20px;
+            }
+            .score_value {
+                color:green;
+                font-weight:bold;
+                font-size:20px;
+            }
+            #total_score {
+                color:#f6931f;
+                font-weight:bold;
+                font-size:40px;
+            }
+            #rank {
+                font-size: 40px;
+                color:gold;
+                font-weight: bold;
+            }
+
+        </style>
+	</head>
+	<body class="">
+		<div id="main" role="main">
+			<div id="content">
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+	<!-- row -->
+	<div class="row">
+
+		<!-- NEW COL START -->
+		<article class="col-sm-12" style="">
+			<div class="jarviswidget jarviswidget-color-darken" id="wid-id-1">
+				<header>
+					<h2>S-Rank calculator for CoC Dungeon - Legend </h2>
+				</header>
+
+				<!-- widget div-->
+				<div style="padding:15px 40px;">
+
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body">
+
+						<form>
+							<fieldset class="margin-top-10">
+
+								<div class="row">
+									<div class="col-sm-12">
+                                        <label>Average Combos:</label>
+                                        <input type="text" id="combos_val" value="4" class="slider_value">
+                                        <span style="float:right; text-align: right" id="combos_score"></span>
+                                        <input type="text" class="slider slider-primary" id="combos" value="4"
+                                               data-slider-min="3"
+                                               data-slider-max="10"
+                                               data-slider-value="4"
+                                               data-slider-step=".1"
+                                               data-slider-selection = "before"
+                                               data-slider-handle="round">
+
+
+
+										<label>Turns:</label>
+                                        <input type="text" id="turns_val" value="20" class="slider_value">
+                                        <span style="float:right; text-align: right" id="turns_score"></span>
+										<input type="text" class="slider slider-primary" id="turns" value="20"
+										data-slider-min="7"
+										data-slider-max="26"
+										data-slider-value="20"
+                                        data-slider-step="1"
+										data-slider-selection = "before"
+										data-slider-handle="round">
+
+
+
+                                        <label>Total Rarity: <span id="rarity_val" class="slider_value">25</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Average Rarity: <span id="avg_rarity_val" class="slider_value">4.2</span>)
+                                        </label>
+                                        <span style="float:right; text-align: right" id="rarity_score"></span>
+                                        <input type="text" class="slider slider-primary" id="rarity" value="25"
+                                               data-slider-min="6"
+                                               data-slider-max="48"
+                                               data-slider-value="25"
+                                               data-slider-step="1"
+                                               data-slider-selection = "before"
+                                               data-slider-handle="round">
+									</div>
+								</div>	
+								
+
+							</fieldset>	
+
+							
+						</form>
+
+                        <div style="text-align: center;" class="col-sm-6">
+                            Rank: <div id="rank"></div>
+                        </div>
+                        <div style="text-align: center;" class="col-sm-6">
+                            Total Score: <div id="total_score"></div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
+
+			</div>
+		</div>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+			}
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+			}
+		</script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events -->
+		<script src="js/jquery.ui.touch-punch.min.js"></script>
+		<!-- BOOTSTRAP JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- JARVIS WIDGETS -->
+		<script src="js/jarvis.widget.min.js"></script>
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="js/bootstrap-slider.js"></script>
+		<!-- browser msie issue fix -->
+		<script src="js/jquery.mb.browser.min.js"></script>
+		<!-- SmartClick: For mobile devices -->
+		<script src="js/smartclick.js"></script>
+
+		<!--[if IE 7]>
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+		<![endif]-->
+
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.js"></script>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+			pageSetUp();
+            numberWithCommas = function(x) { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+            h1 = function(ev) {
+                var score = Math.max(0, 40000 - (ev.value - 7)*2500);
+                $( "#turns_val" ).val( ev.value);
+                $("#turns_score").html("Turns Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
+                return score;
+            }
+            h2 = function(ev){
+                $( "#combos_val" ).val( Math.round(ev.value*10)/10 );
+                var MULTIPLER = 20;
+                var score = MULTIPLER * Math.pow(ev.value, 4);
+                score = Math.round(score/100) * 100;
+                $("#combos_score").html("Combos Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
+                return score;
+            }
+            h3 = function(ev){
+                $( "#rarity_val" ).text( ev.value );
+                $( "#avg_rarity_val" ).text( Math.round(ev.value/6 * 10)/10 );
+                var MULTIPLIER = 76.2;
+                var score = MULTIPLIER * Math.pow((10 - (ev.value/6)),4);
+                score = Math.round(score/100) * 100;
+                $("#rarity_score").html("Rarity Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
+                return score;
+            }
+            compute_total = function() {
+                var total_score = h1($('#turns').slider()[0]) + h2($('#combos').slider()[0]) + h3($('#rarity').slider()[0]);
+                $('#total_score').text(numberWithCommas(total_score));
+                if (total_score>=80000) {
+                    $('#rank').text("S");
+                }
+                else {
+                    $('#rank').html("A <span style='font-size:smaller; color:black;'>(or less)</span>");
+                }
+            }
+            $('#turns').slider().on('slide', compute_total);
+            $('#combos').slider().on('slide', compute_total);
+            $('#rarity').slider().on('slide', compute_total);
+            compute_total();
+		});
+		</script>
+	</body>
 </html>
