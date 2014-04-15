@@ -1,5 +1,7 @@
-S-Rank
+Puzzle & Dragons : S-Rank Calculator
 ======
+
+Play with the calculator here: http://tamadra.github.io/s-rank/
 
 A simple Puzzle &amp; Dragons tool for calculating how to achieve an "S" ranking.
 
