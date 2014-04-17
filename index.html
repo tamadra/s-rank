@@ -7,13 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Basic Styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/prod.css">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="css/production_unminified.css">-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/c.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
     <style>
-        body {
-            overflow: scroll;
-        }
         .slider_value {
             /*color:#3276b1;*/
             color:#3276b1;
@@ -25,7 +24,6 @@
         .slider_value.gray {
             color: gray; font-size: 18px;
         }
-
         .slider {
             margin-top: 10px;
             margin-bottom: 30px;
@@ -74,7 +72,9 @@
             -webkit-transition: background 450ms;
             transition: background 450ms;
         }
-
+        .btn-xs {
+            border-radius: 0;
+        }
     </style>
 </head>
 <body>
@@ -84,28 +84,48 @@
             <article class="col-sm-12" style="">
                 <div class="jarviswidget jarviswidget-color-darken no-margin" id="wid-id-1">
                     <header>
-                        <h2>S-Rank calculator for CoC Dungeon - Legend </h2>
+                        <h2> S-Rank Calculator </h2>
+                        <div class="widget-toolbar">
+                            <!-- add: non-hidden - to disable auto hide -->
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+                                    <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
+                                </button>
+                                <ul id="other_dungeons_menu" class="dropdown-menu js-status-update pull-right">
+                                </ul>
+                            </div>
+                        </div>
                     </header>
+
+
                     <div style="padding-left:20px; padding-right: 20px;">
                         <div class="widget-body">
-                            <div class="col-xs-6 col-sm-8 no-padding">Avg Combo: <span class="slider_value"
-                                                                                             id="combos_value"></span>
-                                <br>Rounded: <span class="slider_value gray" id="rounded_combos_value"></span>
-                            </div>
-                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="combos_score">Score:</div>
-                            <div class="slider col-xs-12 no-padding" id="combos_slider"></div>
 
-                            <div class="col-xs-6 col-sm-8 no-padding">Turns: <span class="slider_value"
-                                                                                    id="turns_value"></span></div>
-                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="turns_score">Score:</div>
-                            <div class="slider col-xs-12 no-padding" id="turns_slider"></div>
-                            
+
+
                             <div class="col-xs-6 col-sm-8 no-padding">
-                                Total Rarity: <span class="slider_value" id="rarity_value"></span>
-                                <br>Avg Rarity: <span class="slider_value gray" id="avg_rarity_value"></span>
+                                Avg Rarity: <span class="slider_value" id="avg_rarity_value"></span>
+                                <br>Total Rarity: <span class="slider_value gray" id="rarity_value"></span>
                             </div>
                             <div class="subscore col-xs-6 col-sm-4 no-padding" id="rarity_score">Score:</div>
                             <div class="slider col-xs-12 no-padding" id="rarity_slider"></div>
+
+
+
+                            <div class="col-xs-6 col-sm-8 no-padding">
+                                Turns: <span class="slider_value" id="turns_value"></span></div>
+                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="turns_score">Score:</div>
+                            <div class="slider col-xs-12 no-padding" id="turns_slider"></div>
+
+
+
+                            <div class="col-xs-6 col-sm-8 no-padding">
+                                Avg Combo: <span class="slider_value" id="combo_value"></span>
+                                <br>Rounded: <span class="slider_value gray" id="rounded_combo_value"></span>
+                            </div>
+                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="combo_score">Score:</div>
+                            <div class="slider col-xs-12 no-padding" id="combo_slider"></div>
+
 
 
                             <div style="text-align: center; border-right:1px solid gray;" class="col-xs-6 no-padding">
@@ -124,16 +144,17 @@
             </article>
         </section>
         <div class="clearfix"></div>
-
     </div>
 </div>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="js/s.js"></script>
+<!-- BOOTSTRAP JS -->
+<script src="js/bootstrap.min.js"></script>
 <!-- browser msie issue fix -->
 <script src="js/jquery.mb.browser.min.js"></script>
 <!--[if IE 7]>
 <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 <![endif]-->
+<script src="js/script.js"></script>
+
 </body>
 </html>
