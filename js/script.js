@@ -32,23 +32,23 @@ $(document).ready(function() {
     }
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7,
-            'cutoff': 80000},
+            'cutoff': 80000, 'combo_min':3, 'combo_max':8},
         'breakers':{'n':'Breakers Dungeon','battles':5,
-            'cutoff': 200000},
+            'cutoff': 200000, 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7,
-            'cutoff': 140000},
+            'cutoff': 140000, 'combo_min':3, 'combo_max':8},
         'jewels':{'n':'Tower of Jewels','battles':5,
-            'cutoff': 200000},
+            'cutoff': 200000, 'combo_min':3, 'combo_max':8},
         'batman':{'n':'Batman Collab','battles':7,
-            'cutoff': 80000},
+            'cutoff': 80000, 'combo_min':3, 'combo_max':8},
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10,
-            'cutoff': 150000},
+            'cutoff': 150000, 'combo_min':3, 'combo_max':8},
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10,
-            'cutoff': 170000},
+            'cutoff': 170000, 'combo_min':4, 'combo_max':10},
         'ancient-dark':{'n':'Ancient Dark Dragon','battles':10,
-            'cutoff': 200000},
+            'cutoff': 200000, 'combo_min':3, 'combo_max':8},
         'ancient-light':{'n':'Ancient Light Dragon','battles':10,
-            'cutoff': 200000}
+            'cutoff': 200000, 'combo_min':3, 'combo_max':8}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
@@ -91,8 +91,8 @@ $(document).ready(function() {
         start: [5.275],
         connect: "lower",
         range: {
-            'min': 3,
-            'max': 8
+            'min': dungeons[current_dungeon].combo_min,
+            'max': dungeons[current_dungeon].combo_max
         },
         serialization: {
             lower: [
