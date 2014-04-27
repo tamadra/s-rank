@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "ancient-wood";
+        current_dungeon = "watery-temptress";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
