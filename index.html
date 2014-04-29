@@ -128,7 +128,7 @@
 
 
 
-                            <div style="text-align: center; border-right:1px solid gray;" class="col-xs-6 no-padding">
+                            <div style="text-align: center; border-right:1px solid gray; min-height: 70px;" class="col-xs-6 no-padding">
                                 Rank:
                                 <div id="rank"></div>
                             </div>
@@ -136,6 +136,13 @@
                                 Total Score:
                                 <div id="total_score"></div>
                             </div>
+                            <div class="clearfix"></div>
+
+                        <div id="share" style="">
+                            <div class="col-xs-12" style="text-align: center; margin-top:25px;">Link directly to this score:</div>
+                            <div class="col-xs-12" style="text-align: center; margin-bottom: 25px;">
+                                <input id="cUrl" type="text" onclick="select()" style="margin: 0 auto; text-align: center; border-color: #1b7fcc" readonly class="col-xs-12" /></div>
+                        </div>
 
                             <div class="clearfix"></div>
                         </div>
@@ -144,8 +151,11 @@
             </article>
         </section>
         <div class="clearfix"></div>
+
     </div>
+
     <div style="text-align: center;">This calculator is <a href="https://github.com/tamadra/s-rank/">open source</a><br>Bugs or Suggestions? Add them here: <a href="https://github.com/tamadra/s-rank/issues">Issue Tracker</a></div>
+
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- BOOTSTRAP JS -->
