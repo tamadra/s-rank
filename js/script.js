@@ -23,11 +23,15 @@
     "g"),"").replace(this.b("mark"),".");a=this.b("decoder")(parseFloat(d+a));return isNaN(a)?!1:a};q.prototype.write=function(a,b,d,c,e){if(!this.update||!1!==e){if(100<=b)b=a.d.slice(-1)[0];else{e=1;for(var f,h,l;b>=a.c[e];)e++;f=a.d[e-1];h=a.d[e];l=a.c[e-1];f=[f,h];b=100/(a.c[e]-l)*(b-l)*(f[1]-f[0])/100+f[0]}this.A=b=this.format(b);if("function"===typeof this.method)this.method.call(this.target[0]||c[0],b,d,c);else this.target[this.method](b,d,c)}};q.prototype.format=function(a){return this.g.C(a)};
     q.prototype.valueOf=function(a){return this.g.t(a)};e.noUiSlider={Link:q};e.fn.noUiSlider=function(a,b){return(b?ea:da).call(this,a)};e.fn.val=function(){var a=Array.prototype.slice.call(arguments,0),b,d,c,g;if(!a.length)return this.hasClass(f[0])?this[0].D():G.apply(this);"object"===typeof a[1]?(b=a[1].set,d=a[1].link,c=a[1].update,g=a[1].animate):!0===a[1]&&(b=!0);return this.each(function(){e(this).hasClass(f[0])?this.F(H(a[0]),b,d,c,g):G.apply(e(this),a)})}})(window.jQuery||window.Zepto);
 
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 $(document).ready(function() {
     function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]").toLowerCase();
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
+            results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
     var dungeons = {
@@ -40,12 +44,12 @@ $(document).ready(function() {
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'combo_min':4, 'combo_max':10},
         'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
         'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
-        'watery-temptress':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8}
+        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "watery-temptress";
+        current_dungeon = "watery";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
@@ -79,8 +83,75 @@ $(document).ready(function() {
 
     var Link = $.noUiSlider.Link;
 
+    var r = getParameterByName('r').replace('/','');
+    var startR = isNumber(r)? r : 27;
+
+    $('#rarity_slider').noUiSlider({
+        start: [startR],
+        step: 1,
+        connect: "lower",
+        range: {
+            'min': 6,
+            'max': 48
+        },
+        serialization: {
+            lower: [
+                new Link({
+                    target: $("#rarity_value"),
+                    format: {
+                        decimals: 0
+                    }
+                }),
+                new Link({
+                    target: function( value, handleElement, slider ){
+                        $("#avg_rarity_value").text( Math.round(value/6 * 10)/10 );
+                        var MULTIPLIER = 76.205;
+                        var score = MULTIPLIER * Math.pow((10 - (value/6)),4);
+                        score = Math.round(score/100) * 100;
+                        $("#rarity_score").html("Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
+                        calc_total();
+                    }
+                })
+            ]
+        }
+    });
+
+
+    var t = getParameterByName('t').replace('/','');
+    var startT = isNumber(t)? t : dungeons[current_dungeon].battles + 9;
+
+    $('#turns_slider').noUiSlider({
+        start: [startT],
+        step: 1,
+        connect: "lower",
+        range: {
+            'min': dungeons[current_dungeon].battles,
+            'max': dungeons[current_dungeon].battles+18
+        },
+        serialization: {
+            lower: [
+                new Link({
+                    target: $("#turns_value"),
+                    format: {
+                        decimals: 0
+                    }
+                }),
+                new Link({
+                    target: function( value, handleElement, slider ){
+                        var score = Math.max(0, 40000 - (value - dungeons[current_dungeon].battles)*2500);
+                        $("#turns_score").html("Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
+                        calc_total();
+                    }
+                })
+            ]
+        }
+    });
+
+    var c = getParameterByName('c').replace('/','');
+    var startC = isNumber(c)? c : 5.275;
+
     $('#combo_slider').noUiSlider({
-        start: [5.275],
+        start: [startC],
         connect: "lower",
         range: {
             'min': dungeons[current_dungeon].combo_min,
@@ -113,60 +184,9 @@ $(document).ready(function() {
         }
     });
 
-    $('#turns_slider').noUiSlider({
-        start: [dungeons[current_dungeon].battles + 9],
-        step: 1,
-        connect: "lower",
-        range: {
-            'min': dungeons[current_dungeon].battles,
-            'max': dungeons[current_dungeon].battles+18
-        },
-        serialization: {
-            lower: [
-                new Link({
-                    target: $("#turns_value"),
-                    format: {
-                        decimals: 0
-                    }
-                }),
-                new Link({
-                    target: function( value, handleElement, slider ){
-                        var score = Math.max(0, 40000 - (value - dungeons[current_dungeon].battles)*2500);
-                        $("#turns_score").html("Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
-                        calc_total();
-                    }
-                })
-            ]
-        }
-    });
-
-    $('#rarity_slider').noUiSlider({
-        start: [27],
-        step: 1,
-        connect: "lower",
-        range: {
-            'min': 6,
-            'max': 48
-        },
-        serialization: {
-            lower: [
-                new Link({
-                    target: $("#rarity_value"),
-                    format: {
-                        decimals: 0
-                    }
-                }),
-                new Link({
-                    target: function( value, handleElement, slider ){
-                        $("#avg_rarity_value").text( Math.round(value/6 * 10)/10 );
-                        var MULTIPLIER = 76.205;
-                        var score = MULTIPLIER * Math.pow((10 - (value/6)),4);
-                        score = Math.round(score/100) * 100;
-                        $("#rarity_score").html("Score: <span class='score_value'>"+ numberWithCommas(score)+"</span>");
-                        calc_total();
-                    }
-                })
-            ]
-        }
-    });
+    updateURL = function(){
+        $('#cUrl').val('http://tamadra.github.io/s-rank/?dungeon='+current_dungeon+'&R='+Math.round($('#rarity_slider').val())+'&T='+Math.round($('#turns_slider').val())+'&C='+$('#combo_value').text());
+    }
+    $('.slider').on('set', updateURL);
+    updateURL();
 });
