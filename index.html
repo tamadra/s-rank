@@ -6,9 +6,6 @@
     <title> S Rank Challenge! </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Basic Styles -->
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">-->
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="css/production_unminified.css">-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/c.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
@@ -98,10 +95,8 @@
                     </header>
 
 
-                    <div style="padding-left:20px; padding-right: 20px;">
-                        <div class="widget-body">
-
-
+                    <div style="padding:20px;">
+                        <div class="widget-body no-padding-bottom">
 
                             <div class="col-xs-6 col-sm-8 no-padding">
                                 Avg Rarity: <span class="slider_value" id="avg_rarity_value"></span>
@@ -128,7 +123,7 @@
 
 
 
-                            <div style="text-align: center; border-right:1px solid gray; min-height: 70px; margin-bottom: 15px" class="col-xs-6 no-padding">
+                            <div style="text-align: center; border-right:1px solid gray; min-height: 70px; margin-bottom: 35px" class="col-xs-6 no-padding">
                                 Rank:
                                 <div id="rank"></div>
                             </div>
@@ -138,8 +133,8 @@
                             </div>
                             <div class="clearfix"></div>
 
-                        <div id="share" style="margin-bottom: 10px; background-color: #eee;">
-                            <div class="col-xs-12" style="text-align: center; margin-top:20px;">Link directly to this score:</div>
+                        <div id="share" style="background-color: #eee;">
+                            <div class="col-xs-12" style="text-align: center; margin-top:15px;">Link directly to this score:</div>
                             <div class="col-xs-12" style="text-align: center; margin-bottom: 20px;">
                                 <input id="cUrl" type="text" onclick="select()" style="margin: 0 auto; text-align: center; border-color: #1b7fcc; border-width: 1px;" class="col-xs-12" />
                             </div>
@@ -157,11 +152,10 @@
 
     </div>
 
-    <div style="text-align: center;">This calculator is <a href="https://github.com/tamadra/s-rank/">open source</a><br>Bugs or Suggestions? Add them here: <a href="https://github.com/tamadra/s-rank/issues">Issue Tracker</a></div>
-
+    <div style="text-align: center; margin: 10px 0;">This calculator is <a href="https://github.com/tamadra/s-rank/">open source</a><br>Bugs or Suggestions? Add them here: <a href="https://github.com/tamadra/s-rank/issues">Issue Tracker</a></div>
 </div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<!-- BOOTSTRAP JS -->
 <script src="js/bootstrap.min.js"></script>
 <!-- browser msie issue fix -->
 <script src="js/jquery.mb.browser.min.js"></script>
