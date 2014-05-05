@@ -42,7 +42,7 @@ $(document).ready(function() {
         'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'combo_min':3, 'combo_max':8},
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'combo_min':3, 'combo_max':8},
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'combo_min':4, 'combo_max':10},
-        'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
+        'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
         'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
         'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8}
     };
