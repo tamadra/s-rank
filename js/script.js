@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "ancient-light";
+        current_dungeon = "ancient-dark";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
