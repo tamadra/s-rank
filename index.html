@@ -3,165 +3,91 @@
 <head>
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
-    <title> S Rank Challenge! </title>
+    <title> S Rank Calculator </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/c.css">
+
+    <link href="css/d.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
-
-    <style>
-        .slider_value {
-            /*color:#3276b1;*/
-            color:#3276b1;
-            font-weight:bold;
-            font-size:20px;
-            margin-left:5px; margin-right:10px;
-            line-height: 20px;
-        }
-        .slider_value.gray {
-            color: gray; font-size: 18px;
-        }
-        .slider {
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-        .score_value {
-            /*color:#f6931f;*/
-            color: green;
-            font-weight:bold;
-            font-size:16px;
-            margin-left:5px;
-            line-height: 20px;
-        }
-        #total_score {
-            color:#f6931f;
-            font-weight:bold;
-            font-size: 30px;
-        }
-        #rank {
-            font-size: 30px;
-            color:gold;
-            font-weight: bold;
-        }
-        #rank img {
-            height: 50px;
-        }
-        .noUi-horizontal {
-            height: 12px;
-        }
-        .noUi-horizontal .noUi-handle {
-            top: -9px;
-            border-radius: 2px;
-            box-shadow: none;
-            background-color: #858585;
-            border-color:#333;
-        }
-        .noUi-target {
-            border-radius: 0;
-        }
-        .noUi-origin {
-            border-radius: 0;
-            background-color: #E5E5E5;
-        }
-        .noUi-connect {
-            background: #3276b1;
-            box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
-            -webkit-transition: background 450ms;
-            transition: background 450ms;
-        }
-        .btn-xs {
-            border-radius: 0;
-        }
-    </style>
 </head>
+
 <body>
-<div id="main" role="main">
-    <div id="content">
-        <section id="widget-grid" class="">
-            <article class="col-sm-12" style="">
-                <div class="jarviswidget jarviswidget-color-darken no-margin" id="wid-id-1">
-                    <header>
-                        <h2> S-Rank Calculator </h2>
-                        <div class="widget-toolbar">
-                            <!-- add: non-hidden - to disable auto hide -->
-                            <div class="btn-group">
-                                <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-                                    <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
-                                </button>
-                                <ul id="other_dungeons_menu" class="dropdown-menu js-status-update pull-right">
-                                </ul>
-                            </div>
-                        </div>
-                    </header>
+<div style="width: 100%; height: 60px; background-color: #404040; color: #ddd; ">
+    <h2 style="line-height: 60px; margin: 0;">
+        <img style="position: relative; top:-3px; margin-right: 10px; margin-left: 20px;" src="img/trans_tamadra.png">
+        S - Rank Calculator </h2>
+</div>
+<div id="main">
+    <!--<h2> <img style="position: relative; top:-3px; margin-right: 10px; margin-left: 3px;" src="img/trans_tamadra.png"> S - Rank Calculator </h2>-->
 
+    <div id="content" class="col-xs-12">
 
-                    <div style="padding:20px;">
-                        <div class="widget-body no-padding-bottom">
+            <div style="padding:20px 30px;">
+                <div class="widget-body no-padding-bottom">
 
-                            <div class="col-xs-6 col-sm-8 no-padding">
-                                Avg Rarity: <span class="slider_value" id="avg_rarity_value"></span>
-                                <br>Total Rarity: <span class="slider_value gray" id="rarity_value"></span>
-                            </div>
-                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="rarity_score">Score:</div>
-                            <div class="slider col-xs-12 no-padding" id="rarity_slider"></div>
-
-
-
-                            <div class="col-xs-6 col-sm-8 no-padding">
-                                Turns: <span class="slider_value" id="turns_value"></span></div>
-                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="turns_score">Score:</div>
-                            <div class="slider col-xs-12 no-padding" id="turns_slider"></div>
-
-
-
-                            <div class="col-xs-6 col-sm-8 no-padding">
-                                Avg Combo: <span class="slider_value" id="combo_value"></span>
-                                <br>Rounded: <span class="slider_value gray" id="rounded_combo_value"></span>
-                            </div>
-                            <div class="subscore col-xs-6 col-sm-4 no-padding" id="combo_score">Score:</div>
-                            <div class="slider col-xs-12 no-padding" id="combo_slider"></div>
-
-
-
-                            <div style="text-align: center; border-right:1px solid gray; min-height: 70px; margin-bottom: 35px" class="col-xs-6 no-padding">
-                                Rank:
-                                <div id="rank"></div>
-                            </div>
-                            <div style="text-align: center;" class="col-xs-6 no-padding">
-                                Total Score:
-                                <div id="total_score"></div>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        <div id="share" style="background-color: #eee;">
-                            <div class="col-xs-12" style="text-align: center; margin-top:15px;">Link directly to this score:</div>
-                            <div class="col-xs-12" style="text-align: center; margin-bottom: 20px;">
-                                <input id="cUrl" type="text" onclick="select()" style="margin: 0 auto; text-align: center; border-color: #1b7fcc; border-width: 1px;" class="col-xs-12" />
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-
-                            <div class="clearfix"></div>
+                    <div class="col-xs-12 no-padding" style="text-align: right; margin-bottom: 30px;">
+                        <!-- add: non-hidden - to disable auto hide -->
+                        <span style="margin-right: 7px; position: relative; top:2px;">Dungeon: </span>
+                        <div class="btn-group">
+                            <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+                                <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
+                            </button>
+                            <ul id="other_dungeons_menu" class="dropdown-menu pull-right">
+                            </ul>
                         </div>
                     </div>
+
+
+                    <div class="col-xs-6 col-sm-8 no-padding">
+                        Avg Rarity: <span class="slider_value" id="avg_rarity_value"></span>
+                        <br>Total Rarity: <span class="slider_value gray" id="rarity_value"></span>
+                    </div>
+                    <div class="subscore col-xs-6 col-sm-4 no-padding" id="rarity_score">Score:</div>
+                    <div class="slider col-xs-12 no-padding" id="rarity_slider"></div>
+
+
+                    <div class="col-xs-6 col-sm-8 no-padding">
+                        Turns: <span class="slider_value" id="turns_value"></span></div>
+                    <div class="subscore col-xs-6 col-sm-4 no-padding" id="turns_score">Score:</div>
+                    <div class="slider col-xs-12 no-padding" id="turns_slider"></div>
+
+
+                    <div class="col-xs-6 col-sm-8 no-padding">
+                        Avg Combo: <span class="slider_value" id="combo_value"></span>
+                        <br>Rounded: <span class="slider_value gray" id="rounded_combo_value"></span>
+                    </div>
+                    <div class="subscore col-xs-6 col-sm-4 no-padding" id="combo_score">Score:</div>
+                    <div class="slider col-xs-12 no-padding" id="combo_slider"></div>
+
+
+                    <div style="text-align: center; border-right:1px solid gray; min-height: 70px; margin-bottom: 30px" class="col-xs-6 no-padding">
+                        Rank:
+                        <div id="rank"></div>
+                    </div>
+                    <div style="text-align: center;" class="col-xs-6 no-padding">
+                        Total Score:
+                        <div id="total_score"></div>
+                    </div>
+
+                    <div id="share" style="background-color: #eee; clear: both;">
+                        <div class="col-xs-12" style="text-align: center; margin-top:15px;">Link directly to this score:</div>
+                        <div class="col-xs-12" style="text-align: center; margin-bottom: 20px;">
+                            <input id="cUrl" type="text" onclick="select()" style="margin: 0 auto; text-align: center; border-color: #1b7fcc; border-width: 1px;" class="col-xs-12" />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
                 </div>
-            </article>
-        </section>
-        <div class="clearfix"></div>
+            </div>
 
     </div>
 
-    <div style="text-align: center; margin: 10px 0;">This calculator is <a href="https://github.com/tamadra/s-rank/">open source</a><br>Bugs or Suggestions? Add them here: <a href="https://github.com/tamadra/s-rank/issues">Issue Tracker</a></div>
+    <div style="text-align: center; clear: both; margin: 10px 0;">This calculator is <a href="https://github.com/tamadra/s-rank/">open source</a><br>Bugs or Suggestions? Add them here: <a href="https://github.com/tamadra/s-rank/issues">Issue Tracker</a></div>
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!-- browser msie issue fix -->
-<script src="js/jquery.mb.browser.min.js"></script>
-<!--[if IE 7]>
-<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-<![endif]-->
 <script src="js/script.js"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
