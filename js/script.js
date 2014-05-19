@@ -44,12 +44,13 @@ $(document).ready(function() {
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'combo_min':4, 'combo_max':10},
         'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
         'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
-        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8}
+        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
+        'red-flower':{'n':'Red Flower Dragon','battles':10, 'cutoff': 100000, 'combo_min':3, 'combo_max':9}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "ancient-dark";
+        current_dungeon = "red-flower";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
