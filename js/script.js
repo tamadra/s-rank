@@ -191,4 +191,10 @@ $(document).ready(function() {
     }
     $('.slider').on('set', updateURL);
     updateURL();
+
+    $('#mobile-nav').on('click', function(e){
+        $(this).toggleClass('open');
+        $('#navigation-mobile').stop().slideToggle(350);
+        e.preventDefault();
+    });
 });
