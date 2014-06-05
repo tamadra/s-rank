@@ -35,19 +35,20 @@ $(document).ready(function() {
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
     var dungeons = {
-        'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'combo_min':3, 'combo_max':8},
-        'breakers':{'n':'Breakers Dungeon','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
-        'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'combo_min':3, 'combo_max':8},
-        'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
-        'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'combo_min':3, 'combo_max':8},
-        'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'combo_min':3, 'combo_max':8},
-        'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'combo_min':4, 'combo_max':10},
-        'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
-        'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'combo_min':4, 'combo_max':10},
-        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':8},
-        'red-flower':{'n':'Red Flower Dragon','battles':10, 'cutoff': 100000, 'combo_min':3, 'combo_max':9},
-        'blue-flower':{'n':'Blue Flower Dragon','battles':10, 'cutoff': 100000, 'combo_min':3, 'combo_max':9},
-        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'combo_min':3, 'combo_max':9}
+        'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'breakers':{'n':'Breakers Dungeon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
+        'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'o':['red','no_blue','green','light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
+        'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'o':['no_red','blue','green','no_light','dark','heart'], 'combo_min':4, 'combo_max':10},
+        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'red-flower':{'n':'Red Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
+        'blue-flower':{'n':'Blue Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
+        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase();
@@ -57,12 +58,17 @@ $(document).ready(function() {
     for (d in dungeons) {
         if (d === current_dungeon) {
             $('#current_dungeon').text(dungeons[d].n);
+            $('#current_icon').attr("src", "img/"+d+".png");
         } else {
-            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__">'+dungeons[d].n+'</a></li>');
+            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
         }
     }
-
     numberWithCommas = function(x) { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+    $('#battles').text(dungeons[current_dungeon].battles);
+    $('#cutoff').text(numberWithCommas(dungeons[current_dungeon].cutoff));
+    for (var i in dungeons[current_dungeon].o) {
+        $('#orbs').append('<img width="20px" src="img/'+dungeons[current_dungeon].o[i]+'.png">');
+    }
     var currentTotal = -1;
     calc_total = function() {
         var scores = $('.score_value');

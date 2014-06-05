@@ -76,6 +76,20 @@
         font-size: 16px;
         padding: 12px 0;
     }
+    #dungeon-selector, #battles, #cutoff {
+        font-weight: 600;
+    }
+    .btn-sm {
+        padding: 8px;
+    }
+    #button_selector.btn-sm {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 2px;
+    }
+    #current_icon {
+        margin-right:5px;
+    }
 
 </style>
 <body>
@@ -106,14 +120,22 @@
             <div style="padding:20px 30px;">
                 <div class="widget-body no-padding-bottom">
 
-                    <div class="col-xs-12 no-padding" style="text-align: right; margin-bottom: 30px;">
+                    <div class="col-xs-12 no-padding" style="margin-bottom: 30px;">
                         <!-- add: non-hidden - to disable auto hide -->
-                        <span style="margin-right: 7px; position: relative; top:2px;">Dungeon: </span>
-                        <div class="btn-group">
-                            <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-                                <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
+                        <div id="dungeon-selector" class="btn-group">
+                            <button id="button_selector" class="btn dropdown-toggle btn-sm btn-default" data-toggle="dropdown">
+                                <img id="current_icon"> <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
                             </button>
-                            <ul id="other_dungeons_menu" class="dropdown-menu pull-right">
+                            <button class="btn btn-sm btn-default">
+                                <span id="battles"></span> Floors
+                            </button>
+                            <button class="btn btn-sm btn-default">
+                                S-rank cutoff: <span id="cutoff"></span>
+                            </button>
+                            <button id="orbs" class="btn btn-sm btn-default" style="padding: 7px;">
+
+                            </button>
+                            <ul id="other_dungeons_menu" class="dropdown-menu pull-left">
                             </ul>
                         </div>
                     </div>
