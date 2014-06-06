@@ -67,7 +67,7 @@ $(document).ready(function() {
     $('#battles').text(dungeons[current_dungeon].battles);
     $('#cutoff').text(numberWithCommas(dungeons[current_dungeon].cutoff));
     for (var i in dungeons[current_dungeon].o) {
-        $('#orbs').append('<img width="20px" src="img/'+dungeons[current_dungeon].o[i]+'.png">');
+        $('#orbs').append('<img width="20px" height="20px" src="img/'+dungeons[current_dungeon].o[i]+'.png">');
     }
     var currentTotal = -1;
     calc_total = function() {

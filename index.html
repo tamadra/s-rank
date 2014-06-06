@@ -80,12 +80,18 @@
         font-weight: 600;
     }
     .btn-sm {
-        padding: 8px;
+        padding: 10px 15px;
+        line-height: 20px;
     }
     #button_selector.btn-sm {
-        padding-top: 2px;
-        padding-bottom: 2px;
-        padding-left: 2px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+    #orbs.btn-sm {
+        padding-top:9px;
+        padding-bottom:10px;
     }
     #current_icon {
         margin-right:5px;
@@ -115,31 +121,31 @@
 <div id="main">
     <!--<h2> <img style="position: relative; top:-3px; margin-right: 10px; margin-left: 3px;" src="img/trans_tamadra.png"> S - Rank Calculator </h2>-->
 
+    <div class="col-xs-12 no-padding" style="margin-bottom: 10px; background-color: white; border: 1px solid #ccc; border-left-width: 2px; border-right-width: 2px;">
+        <!-- add: non-hidden - to disable auto hide -->
+        <div id="dungeon-selector" class="btn-group">
+            <button id="button_selector" style="border:none;" class="btn dropdown-toggle btn-sm btn-default" data-toggle="dropdown">
+                <img id="current_icon"> <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
+            </button>
+            <button style="border:none; " class="btn btn-sm btn-default">
+                Floors: <span id="battles"></span>
+            </button>
+            <button style="border:none;" class="btn btn-sm btn-default">
+                S-rank cutoff: <span id="cutoff"></span>
+            </button>
+            <button style="border:none;" id="orbs" class="btn btn-sm btn-default" style="padding: 7px;">
+            </button>
+            <ul id="other_dungeons_menu" class="dropdown-menu pull-left">
+            </ul>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
     <div id="content" class="col-xs-12">
 
             <div style="padding:20px 30px;">
                 <div class="widget-body no-padding-bottom">
-
-                    <div class="col-xs-12 no-padding" style="margin-bottom: 30px;">
-                        <!-- add: non-hidden - to disable auto hide -->
-                        <div id="dungeon-selector" class="btn-group">
-                            <button id="button_selector" class="btn dropdown-toggle btn-sm btn-default" data-toggle="dropdown">
-                                <img id="current_icon"> <span id="current_dungeon"></span> &nbsp;<span class="caret"></span>
-                            </button>
-                            <button class="btn btn-sm btn-default">
-                                <span id="battles"></span> Floors
-                            </button>
-                            <button class="btn btn-sm btn-default">
-                                S-rank cutoff: <span id="cutoff"></span>
-                            </button>
-                            <button id="orbs" class="btn btn-sm btn-default" style="padding: 7px;">
-
-                            </button>
-                            <ul id="other_dungeons_menu" class="dropdown-menu pull-left">
-                            </ul>
-                        </div>
-                    </div>
-
 
                     <div class="col-xs-6 col-sm-8 no-padding">
                         Avg Rarity: <span class="slider_value" id="avg_rarity_value"></span>
@@ -196,7 +202,7 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/script_1.js"></script>
+<script src="js/script_2.js"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
