@@ -311,7 +311,7 @@ $(document).ready(function() {
             $('#leader_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
     $("#s1_select2").on("change", function(e){
         team[1] = e.added;
@@ -322,7 +322,7 @@ $(document).ready(function() {
             $('#s1_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
     $("#s2_select2").on("change", function(e){
         team[2] = e.added;
@@ -333,7 +333,7 @@ $(document).ready(function() {
             $('#s2_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
     $("#s3_select2").on("change", function(e){
         team[3] = e.added;
@@ -344,7 +344,7 @@ $(document).ready(function() {
             $('#s3_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
     $("#s4_select2").on("change", function(e){
         team[4] = e.added;
@@ -355,7 +355,7 @@ $(document).ready(function() {
             $('#s4_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
     $("#friend_select2").on("change", function(e){
         team[5] = e.added;
@@ -366,7 +366,7 @@ $(document).ready(function() {
             $('#friend_stats').html("");
         }
         updateModalTotal();
-        $(':focus').blur();
+//        $(':focus').blur();
     });
 
 
