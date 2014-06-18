@@ -51,12 +51,13 @@ $(document).ready(function() {
         'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'red-flower':{'n':'Red Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'blue-flower':{'n':'Blue Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
+        'green-flower':{'n':'Green Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "blue-flower";
+        current_dungeon = "green-flower";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
