@@ -42,7 +42,7 @@ $(document).ready(function() {
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
-        'breakers':{'n':'Breakers Dungeon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'breakers':{'n':'Breakers','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
         'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'o':['red','no_blue','green','light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
@@ -53,12 +53,13 @@ $(document).ready(function() {
         'blue-flower':{'n':'Blue Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'green-flower':{'n':'Green Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'orange-flower':{'n':'Orange Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
+        'purple-flower':{'n':'Purple Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "orange-flower";
+        current_dungeon = "purple-flower";
     }
     for (d in dungeons) {
         if (d === current_dungeon) {
