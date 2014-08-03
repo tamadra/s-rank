@@ -37,6 +37,7 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+    var numD = 22;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -56,20 +57,29 @@ $(document).ready(function() {
         'purple-flower':{'n':'Purple Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'dark-night':{'n':'Dark Night Sword','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'flame-dragon':{'n':"Flame Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
-        'flame-dragon':{'n':"Flame Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8}
+        'flame-mech':{'n':"Flame Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
+        'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "lightless";
+        current_dungeon = "mystic-dark";
     }
+    var ii =0;
     for (d in dungeons) {
+        ii++;
         if (d === current_dungeon) {
             $('#current_dungeon').text(dungeons[d].n);
             $('#current_icon').attr("src", "img/"+d+".png");
         } else {
-            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
+//            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
+            if (ii <= numD/2) {
+                $('#dd_col_1').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
+            } else {
+                $('#dd_col_2').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
+            }
         }
     }
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-    <link href="css/d_1.css?v=0.1" rel="stylesheet">
+    <link href="css/d_1.css?v=0.2" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 </head>
 <style>
@@ -240,8 +240,24 @@
             <button style="border:none;" id="orbs" class="btn btn-sm btn-default" style="padding: 7px;">
                 Orbs: <span id="orbs2"></span>
             </button>
-            <ul id="other_dungeons_menu" class="dropdown-menu pull-left">
+            
+            <!--<ul id="other_dungeons_menu" class="dropdown-menu pull-left">-->
+            <!--</ul>-->
+
+
+
+            <ul class="dropdown-menu pull-left">
+                <li>
+                    <div class="row" style="width: 500px;">
+                        <ul class="list-unstyled col-md-6" id="dd_col_1">
+                        </ul>
+                        <ul class="list-unstyled col-md-6" id="dd_col_2">
+                        </ul>
+                    </div>
+                </li>
             </ul>
+            
+            
         </div>
     </div>
 
@@ -415,7 +431,7 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="js/select2/select2.css" rel="stylesheet"/>
 <script src="js/select2/select2.min.js"></script>
-<script src="js/script_2.js?v=1.3"></script>
+<script src="js/script_2.js?v=1.5"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
