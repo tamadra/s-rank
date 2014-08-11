@@ -58,14 +58,16 @@ $(document).ready(function() {
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'dark-night':{'n':'Dark Night Sword','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'flame-dragon':{'n':"Flame Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'ocean-dragon':{'n':"Ocean Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'flame-mech':{'n':"Flame Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
-        'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9}
+        'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'mystic-light':{'n':"Mystic Light Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','no_dark','heart'], 'combo_min':3, 'combo_max':9}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "mystic-dark";
+        current_dungeon = "mystic-light";
     }
     var ii =0;
     for (d in dungeons) {
@@ -75,7 +77,7 @@ $(document).ready(function() {
             $('#current_icon').attr("src", "img/"+d+".png");
         } else {
 //            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
-            if (ii <= numD/2) {
+            if (ii <= numD/2 + 1) {
                 $('#dd_col_1').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
             } else {
                 $('#dd_col_2').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
