@@ -61,6 +61,7 @@ $(document).ready(function() {
         'ocean-dragon':{'n':"Ocean Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'flame-mech':{'n':"Flame Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
+        'ice-mech':{'n':"Ice Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
         'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'mystic-light':{'n':"Mystic Light Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','no_dark','heart'], 'combo_min':3, 'combo_max':9}
     };
