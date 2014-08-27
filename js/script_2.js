@@ -37,31 +37,50 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    var numD = 22;
+    var numD = 28;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
-        'breakers':{'n':'Breakers','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        's1':{'n':"separator"},
+        
         'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'breakers':{'n':'Breakers','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        's2':{'n':"separator"},
+
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
         'ancient-dark':{'n':'Ancient Dark Dragon','battles':10, 'cutoff': 200000, 'o':['red','no_blue','green','light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
         'ancient-light':{'n':'Ancient Light Dragon','battles':10, 'cutoff': 200000, 'o':['no_red','blue','green','no_light','dark','heart'], 'combo_min':4, 'combo_max':10},
-        'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
-        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        's3':{'n':"separator"},
+        
         'red-flower':{'n':'Red Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'blue-flower':{'n':'Blue Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'green-flower':{'n':'Green Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'orange-flower':{'n':'Orange Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         'purple-flower':{'n':'Purple Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
-        'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        's5':{'n':"separator"},
+
+        'dragon-guardian':{'n':'Dragon Guardian','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'blade-justice':{'n':'Blade of Justice','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'dark-night':{'n':'Dark Night Sword','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        's6':{'n':"separator"},
+
         'flame-dragon':{'n':"Flame Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'ocean-dragon':{'n':"Ocean Dragon Knight",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
-        'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        's7':{'n':"separator"},
+
         'flame-mech':{'n':"Flame Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
         'ice-mech':{'n':"Ice Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
+        'wind-mech':{'n':"Wind Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
+        'noble-mech':{'n':"Noble Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        's8':{'n':"separator"},
+
+        'mystic-fire':{'n':"Mystic Fire Dragon",'battles':7, 'cutoff': 140000, 'o':['red','no_blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'mystic-light':{'n':"Mystic Light Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','no_dark','heart'], 'combo_min':3, 'combo_max':9}
     };
@@ -72,11 +91,18 @@ $(document).ready(function() {
     }
     var ii =0;
     for (d in dungeons) {
-        ii++;
-        if (d === current_dungeon) {
+        if (dungeons[d].n === 'separator') {
+            if (ii <= numD/2 + 1) {
+                $('#dd_col_1').append('<li class="separator"></li>');
+            } else {
+                $('#dd_col_2').append('<li class="separator"></li>');
+            }
+        }
+        else if (d === current_dungeon) {
             $('#current_dungeon').text(dungeons[d].n);
             $('#current_icon').attr("src", "img/"+d+".png");
         } else {
+            ii++;
 //            $('#other_dungeons_menu').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
             if (ii <= numD/2 + 1) {
                 $('#dd_col_1').append('<li><a href="index.html?dungeon='+d+'" id="'+d+'__"><img src="img/'+d+'.png"> '+dungeons[d].n+'</a></li>');
