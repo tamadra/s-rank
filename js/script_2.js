@@ -87,7 +87,7 @@ $(document).ready(function() {
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "mystic-light";
+        current_dungeon = "noble-mech";
     }
     var ii =0;
     for (d in dungeons) {
