@@ -37,7 +37,7 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    var numD = 28;
+    var numD = 31;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -51,6 +51,7 @@ $(document).ready(function() {
         'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'shadow':{'n':'Shadow Sprite','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         's2':{'n':"separator"},
 
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
@@ -77,17 +78,19 @@ $(document).ready(function() {
         'flame-mech':{'n':"Flame Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
         'ice-mech':{'n':"Ice Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
         'wind-mech':{'n':"Wind Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},        
+        'rusted-mech':{'n':"Rusted Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'noble-mech':{'n':"Noble Mechdragon",'battles':10, 'cutoff': 120000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         's8':{'n':"separator"},
 
         'mystic-fire':{'n':"Mystic Fire Dragon",'battles':7, 'cutoff': 140000, 'o':['red','no_blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'mystic-water':{'n':"Mystic Water Dragon",'battles':7, 'cutoff': 140000, 'o':['red','blue','no_green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'mystic-dark':{'n':"Mystic Dark Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'mystic-light':{'n':"Mystic Light Dragon",'battles':7, 'cutoff': 100000, 'o':['red','blue','green','light','no_dark','heart'], 'combo_min':3, 'combo_max':9}
     };
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "noble-mech";
+        current_dungeon = "dragon-guardian";
     }
     var ii =0;
     for (d in dungeons) {
