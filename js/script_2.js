@@ -37,7 +37,7 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    var numD = 31;
+    var numD = 32;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
