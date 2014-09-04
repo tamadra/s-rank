@@ -44,6 +44,7 @@ $(document).ready(function() {
         'batman':{'n':'Batman Collab','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'gunma':{'n':'Gunma Collab','battles':10, 'cutoff': 160000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         's1':{'n':"separator"},
         
         'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -90,7 +91,7 @@ $(document).ready(function() {
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "dragon-guardian";
+        current_dungeon = "mystic-water";
     }
     var ii =0;
     for (d in dungeons) {
