@@ -37,7 +37,7 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    var numD = 32;
+    var numD = 33;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -45,6 +45,7 @@ $(document).ready(function() {
         'hello-kitty':{'n':'Hello Kitty Collab','battles':10, 'cutoff': 150000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'groove':{'n':'GROOVE COASTER Collab','battles':10, 'cutoff': 180000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'gunma':{'n':'Gunma Collab','battles':10, 'cutoff': 160000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
+        'takaoka':{'n':'Takaoka City Collab','battles':10, 'cutoff': 200000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
         's1':{'n':"separator"},
         
         'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -91,7 +92,7 @@ $(document).ready(function() {
 
     var current_dungeon = getParameterByName("dungeon").toLowerCase() || getParameterByName("d").toLowerCase();
     if (! (current_dungeon in dungeons)) {
-        current_dungeon = "mystic-water";
+        current_dungeon = "takaoka";
     }
     var ii =0;
     for (d in dungeons) {
