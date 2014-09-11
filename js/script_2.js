@@ -37,7 +37,7 @@ $(document).ready(function() {
             results = regex.exec(location.search.toLowerCase());
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    var numD = 33;
+    var numD = 35;
     var dungeons = {
         'coc':{'n':'Clash of Clans','battles':7, 'cutoff': 80000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'eva':{'n':'EVANGELION Collab','battles':7, 'cutoff': 140000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
@@ -48,12 +48,13 @@ $(document).ready(function() {
         'takaoka':{'n':'Takaoka City Collab','battles':10, 'cutoff': 200000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
         's1':{'n':"separator"},
         
+        'ssp':{'n':'Scarlet Snake Princess','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'jewels':{'n':'Tower of Jewels','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'breakers':{'n':'Breakers','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'lightless':{'n':"Lightless Devils' Nest",'battles':5, 'cutoff': 250000, 'o':['red','blue','green','no_light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'watery':{'n':'Watery Temptress','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
-        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         'shadow':{'n':'Shadow Sprite','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
+        'gleaming':{'n':'Gleaming Dragon','battles':5, 'cutoff': 200000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':9},
         's2':{'n':"separator"},
 
         'ancient-wood':{'n':'Ancient Wood Dragon','battles':10, 'cutoff': 170000, 'o':['red','blue','green','no_light','no_dark','heart'], 'combo_min':4, 'combo_max':10},
@@ -68,6 +69,7 @@ $(document).ready(function() {
         'purple-flower':{'n':'Purple Flower Dragon','battles':10, 'cutoff': 100000, 'o':['red','blue','green','light','dark','no_heart'], 'combo_min':3, 'combo_max':9},
         's5':{'n':"separator"},
 
+        'sword-flames':{'n':'Sword of Flames','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'dragon-guardian':{'n':'Dragon Guardian','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'blade-justice':{'n':'Blade of Justice','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
         'dark-night':{'n':'Dark Night Sword','battles':5, 'cutoff': 230000, 'o':['red','blue','green','light','dark','heart'], 'combo_min':3, 'combo_max':8},
